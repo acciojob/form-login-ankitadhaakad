@@ -1,13 +1,14 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form from submitting normally and refreshing the page
+function getFormvalue(event) {
+    event.preventDefault(); // Prevent form from submitting
 
-  // Retrieve and trim values to remove extra spaces
-  const fname = document.querySelector('input[name="fname"]').value.trim();
-  const lname = document.querySelector('input[name="lname"]').value.trim();
+    // Get trimmed values
+    const firstName = document.getElementById("fname").value.trim();
+    const lastName = document.getElementById("lname").value.trim();
 
-  // Combine first name and last name with a space
-  const fullName = `${fname} ${lname}`.trim();
-
-  // Display the full name using alert
-  alert(fullName);
-});
+    // Check for empty inputs
+    if (firstName === "" && lastName === "") {
+        alert("Please enter your name.");
+    } else {
+        alert(`${firstName} ${lastName}`.trim());
+    }
+}
